@@ -1,21 +1,79 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+class BlogIndex extends React.Component {
+  render() {
+    const { data } = this.props
+    const siteTitle = this.props.data.site.siteMetadata.title
+    const posts = data.allContentfulPost.edges
 
-export default IndexPage
+    return (
+      <Layout location={this.props.location} title={siteTitle}>
+        <SEO title="All posts" />
+        <div class="row">
+          {posts.map(({ node }) => {
+            const title = node.title || node.slug
+            return (
+              <div class="col s12 m8 l6">
+                <div key={node.slug} class="card large z-depth-3">
+                  <div class="card-image">
+                    <img src={`${node.imageUrl}`} class="responsive-img" />
+                  </div>
+                  <div class="card-content">
+                    <h3
+                      style={{
+                        textAlign: "center",
+                      }}
+                    >
+                      <Link style={{ boxShadow: `none` }} to={node.slug}>
+                        {title}
+                      </Link>
+                    </h3>
+                    <p
+                      style={{
+                        textAlign: "center",
+                      }}
+                    >
+                      {node.subtitle}
+                    </p>
+                  </div>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: node.description || node.excerpt,
+                    }}
+                  />
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </Layout>
+    )
+  }
+}
+
+export default BlogIndex
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allContentfulPost {
+      edges {
+        node {
+          title
+          subtitle
+          author
+          slug
+          imageUrl
+        }
+      }
+    }
+  }
+`
