@@ -28,6 +28,7 @@ export default function HTML(props) {
           type="text/javascript"
           async
           defer
+          data-pin-round = true
           src="//assets.pinterest.com/js/pinit.js"
         ></script>
       </body>

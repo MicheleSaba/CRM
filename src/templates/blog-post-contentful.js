@@ -21,11 +21,11 @@ class BlogPostTemplate extends React.Component {
           {post.title}
         </h1>
         <h2>{post.subtitle}</h2>
-        <img src={`${post.imageUrl}`} class="z-depth-5"/>
+        <img src={`${post.imageUrl}`} class="z-depth-5" />
         <a
-          href="https://www.pinterest.com/pin/139752394664775546/"
-          data-pin-do="embedPin"
-        ></a>
+          href="https://www.pinterest.com/pin/create/button/"
+          data-pin-do="buttonBookmark"
+        >hello</a>
         <p
           style={{
             display: `block`,
