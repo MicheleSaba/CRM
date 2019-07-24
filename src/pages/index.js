@@ -17,7 +17,7 @@ class BlogIndex extends React.Component {
           {posts.map(({ node }) => {
             const title = node.title || node.slug
             return (
-              <div class="col s12 m8 l6">
+              <div class="col s12 m12 l4">
                 <div key={node.slug} class="card large z-depth-3">
                   <div class="card-image">
                     <img src={`${node.imageUrl}`} class="responsive-img" />
