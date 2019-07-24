@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
+import pin from "../images/pin.png"
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.contentfulPost
@@ -16,23 +16,51 @@ class BlogPostTemplate extends React.Component {
           style={{
             marginTop: 20,
             marginBottom: 0,
+            textAlign: "center",
           }}
         >
           {post.title}
         </h1>
-        <h2>{post.subtitle}</h2>
-        <img src={`${post.imageUrl}`} class="z-depth-5" />
+        <h2
+          style={{
+            marginBottom: 0,
+            textAlign: "center",
+          }}
+        >
+          {post.subtitle}
+        </h2>
+        <img
+          src={`${post.imageUrl}`}
+          class="z-depth-5"
+          style={{
+            marginTop: 20,
+            marginLeft: "auto",
+            marginRight: "auto",
+            marginBottom: 20,
+            textAlign: "center",
+          }}
+        />
         <a
           href="https://www.pinterest.com/pin/create/button/"
           data-pin-do="buttonBookmark"
-        >hello</a>
+          data-pin-description={`${post.title}`}
+          data-pin-custom="true"
+          // data-pin-url={`https://localhost:8000/${post.slug}`}
+        >
+          <img
+            src={pin}
+            style={{
+              width: 30,
+            }}
+          />
+        </a>
         <p
           style={{
             display: `block`,
             marginBottom: 20,
           }}
         >
-          {post.date}
+          {post.paragraph1.paragraph1}
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
@@ -85,6 +113,10 @@ export const pageQuery = graphql`
       author
       subtitle
       imageUrl
+      paragraph1 {
+        id
+        paragraph1
+      }
     }
   }
 `
