@@ -5,13 +5,13 @@ import SEO from "../components/seo"
 import pin from "../images/pin.png"
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.contentfulPost
+    const product = this.props.data.contentfulProduct
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title={post.title} description={post.subtitle} />
+        <SEO title={product.companyName} description={product.subTitle} />
         <h1
           style={{
             marginTop: 20,
@@ -19,7 +19,7 @@ class BlogPostTemplate extends React.Component {
             textAlign: "center",
           }}
         >
-          {post.title}
+          {product.title}
         </h1>
         <h2
           style={{
@@ -27,10 +27,10 @@ class BlogPostTemplate extends React.Component {
             textAlign: "center",
           }}
         >
-          {post.subtitle}
+          {product.subTitle}
         </h2>
         <img
-          src={`${post.imageUrl}`}
+          src={`${product.imageUrl}`}
           class="z-depth-5"
           style={{
             marginTop: 20,
@@ -40,29 +40,16 @@ class BlogPostTemplate extends React.Component {
             textAlign: "center",
           }}
         />
-        <a
-          href="https://www.pinterest.com/pin/create/button/"
-          data-pin-do="buttonBookmark"
-          data-pin-description={`${post.title}`}
-          data-pin-custom="true"
-          // data-pin-url={`https://localhost:8000/${post.slug}`}
-        >
+        <div class="row">
           <img
             src={pin}
             style={{
               width: 30,
             }}
           />
-        </a>
-        <p
-          style={{
-            display: `block`,
-            marginBottom: 20,
-          }}
-        >
-          {post.paragraph1.paragraph1}
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        </div>
+        <div class="container"></div>
+        <div dangerouslySetInnerHTML={{ __html: product.html }} />
         <hr
           style={{
             marginBottom: 20,
@@ -81,14 +68,14 @@ class BlogPostTemplate extends React.Component {
           <li>
             {previous && (
               <Link to={previous.slug} rel="prev">
-                ← {previous.title}
+                ← {previous.companyName}
               </Link>
             )}
           </li>
           <li>
             {next && (
               <Link to={next.slug} rel="next">
-                {next.title} →
+                {next.companyName} →
               </Link>
             )}
           </li>
@@ -108,15 +95,10 @@ export const pageQuery = graphql`
         author
       }
     }
-    contentfulPost(slug: { eq: $slug }) {
-      title
-      author
-      subtitle
+    contentfulProduct(slug: { eq: $slug }) {
+      subTitle
       imageUrl
-      paragraph1 {
-        id
-        paragraph1
-      }
+      companyName
     }
   }
 `

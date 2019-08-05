@@ -1,6 +1,5 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -8,13 +7,13 @@ class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = this.props.data.site.siteMetadata.title
-    const posts = data.allContentfulPost.edges
+    const products = data.allContentfulProduct.edges
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
+        <SEO title="All products" />
         <div class="row">
-          {posts.map(({ node }) => {
+          {products.map(({ node }) => {
             const title = node.title || node.slug
             return (
               <div class="col s12 m12 l4">
@@ -37,7 +36,7 @@ class BlogIndex extends React.Component {
                         textAlign: "center",
                       }}
                     >
-                      {node.subtitle}
+                      {node.subTitle}
                     </p>
                   </div>
                   <p
@@ -64,12 +63,11 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulPost {
+    allContentfulProduct {
       edges {
         node {
-          title
-          subtitle
-          author
+          companyName
+          subTitle
           slug
           imageUrl
         }
