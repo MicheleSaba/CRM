@@ -32,10 +32,11 @@ const Layout = ({ children }) => {
             background: `#8852c4`,
             color: "#fff",
             textAlign: "center",
-            bottom: 0,
+            bottom: "0",
           }}
         >
-          © {new Date().getFullYear()}, Michele Saba
+          © {new Date().getFullYear()}, Cedar Rapids & Marion Resale | Member
+          Perks
         </footer>
       </div>
     </>

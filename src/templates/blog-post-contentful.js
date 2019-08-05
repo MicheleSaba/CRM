@@ -14,7 +14,7 @@ class BlogPostTemplate extends React.Component {
         <SEO title={product.companyName} description={product.subTitle} />
         <div
           style={{
-            width: "500px",
+            width: "600px",
             margin: "auto",
             flexWrap: `wrap`,
             justifyContent: `space-between`,
@@ -122,6 +122,10 @@ export const pageQuery = graphql`
       expires
       startDate
       phone
+      address {
+        lon
+        lat
+      }
     }
   }
 `
