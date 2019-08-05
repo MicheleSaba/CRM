@@ -6,9 +6,9 @@ if (process.env.NODE_ENV !== "production") {
 
 module.exports = {
   siteMetadata: {
-    title: `DIY Blog!`,
-    description: `A website for finding things to DIY`,
-    author: `Michele Saba`,
+    title: `Hey Cedar Rapids`,
+    description: `Find great deals and perks from local businesses`,
+    author: `Cedar Rapids & Marion Resale`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

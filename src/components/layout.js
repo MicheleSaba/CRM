@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
         <main>{children}</main>
         <footer
           style={{
-            background: `#637381`,
+            background: `#8852c4`,
             color: "#fff",
             textAlign: "center",
             bottom: 0,

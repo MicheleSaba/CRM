@@ -14,17 +14,19 @@ class BlogIndex extends React.Component {
         <SEO title="All products" />
         <div class="row">
           {products.map(({ node }) => {
-            const title = node.title || node.slug
+            const title = node.subTitle || node.slug
             return (
               <div class="col s12 m12 l4">
-                <div key={node.slug} class="card large z-depth-3">
+                <div key={node.slug} class="card z-depth-3">
                   <div class="card-image">
+                  <Link style={{ boxShadow: `none` }} to={node.slug}>
                     <img src={`${node.imageUrl}`} class="responsive-img" />
+                    </Link>
                   </div>
                   <div class="card-content">
                     <h3
                       style={{
-                        textAlign: "center",
+                        textAlign: "left",
                       }}
                     >
                       <Link style={{ boxShadow: `none` }} to={node.slug}>
@@ -33,10 +35,18 @@ class BlogIndex extends React.Component {
                     </h3>
                     <p
                       style={{
-                        textAlign: "center",
+                        textAlign: "left",
                       }}
                     >
                       {node.subTitle}
+                    </p>
+                    <p
+                      style={{
+                        textAlign: "left",
+                        textDecoration: "line-through",
+                      }}
+                    >
+                      {node.originalPrice}
                     </p>
                   </div>
                   <p
@@ -70,6 +80,23 @@ export const pageQuery = graphql`
           subTitle
           slug
           imageUrl
+          aboutCompany {
+            id
+            aboutCompany
+          }
+          whatYouGet {
+            id
+            whatYouGet
+          }
+          originalPrice
+          expires
+          startDate
+          termsAndConditions {
+            id
+            termsAndConditions
+          }
+          phone
+          salePrice
         }
       }
     }
