@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import RedeemModal from "../components/redeemModal"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -14,7 +15,7 @@ class BlogPostTemplate extends React.Component {
         <SEO title={product.companyName} description={product.subTitle} />
         <div
           style={{
-            width: "600px",
+            maxWidth: "600px",
             margin: "auto",
             flexWrap: `wrap`,
             justifyContent: `space-between`,
@@ -58,7 +59,38 @@ class BlogPostTemplate extends React.Component {
           <div class="row">
             <p>{product.whatYouGet.whatYouGet}</p>
           </div>
-
+          <p
+            style={{
+              textAlign: "left",
+              textDecoration: "line-through",
+              display: "inline-block",
+              width: "60px",
+              float: "left",
+              color: "#888",
+            }}
+          >
+            ${product.originalPrice}
+          </p>
+          {product.salePrice === 0 ? (
+            <p
+              style={{
+                textAlign: "left",
+              }}
+            >
+              Free
+            </p>
+          ) : (
+            <p
+              style={{
+                textAlign: "left",
+                paddingLeft: "2px",
+              }}
+            >
+              ${product.salePrice}
+            </p>
+          )}
+          <RedeemModal />
+          <p>{product.expires}</p>
           <div dangerouslySetInnerHTML={{ __html: product.html }} />
           <hr
             style={{
@@ -119,6 +151,7 @@ export const pageQuery = graphql`
         whatYouGet
       }
       originalPrice
+      salePrice
       expires
       startDate
       phone

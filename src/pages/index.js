@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import GoogleMap from "../components/google-map"
 
 class BlogIndex extends React.Component {
   render() {
@@ -25,7 +26,11 @@ class BlogIndex extends React.Component {
                   <div key={node.slug} class="card z-depth-3">
                     <div class="card-image">
                       <Link style={{ boxShadow: `none` }} to={node.slug}>
-                        <img src={`${node.imageUrl}`} class="responsive-img" />
+                        <img
+                          src={`${node.imageUrl}`}
+                          class="responsive-img"
+                          alt="something nice"
+                        />
                       </Link>
                     </div>
                     <div
