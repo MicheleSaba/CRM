@@ -11,11 +11,13 @@ const SecondPage = () => (
       class="container"
       style={{
         textAlign: "center",
+        padding: "40px",
+        minHeight: "650px",
       }}
     >
       <h1>
-        An online community in the Cedar Rapids Corridor Area to buy & sell used
-        items, ask questions and get recomendations.
+        An online community for Cedar Rapids residents to buy & sell used items,
+        ask questions and get recommendations.
       </h1>
       <p>
         Cedar Rapids & Marion Resale is a semi-private community-driven project
@@ -24,16 +26,15 @@ const SecondPage = () => (
       </p>
       <div class="row">
         <div class="col s12 l4">
-          <p>28k Monthly Posts</p>
+          <p>30k Monthly Posts</p>
         </div>
         <div class="col s12 l4">
           <p>13K Daily Active Members</p>
         </div>
         <div class="col s12 l4">
-          <p>40K Local Members</p>
+          <p>43K Local Members</p>
         </div>
       </div>
-      <Link to="/">Go back to the homepage</Link>
     </div>
   </Layout>
 )
