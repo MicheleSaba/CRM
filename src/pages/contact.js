@@ -19,9 +19,10 @@ const Contact = () => (
       <p>There are a few ways to get in touch!</p>
       <div class="row">
         <div class="col s4 l4">
-          <a href="#">
+          <a href="https//www.google.com">
             <img
               src={facebook}
+              alt="facebook icon"
               style={{
                 maxWidth: "50px",
               }}
@@ -29,9 +30,10 @@ const Contact = () => (
           </a>
         </div>
         <div class="col s4 l4">
-          <a href="#">
+          <a href="https//www.google.com">
             <img
               src={messenger}
+              alt="messenger icon"
               style={{
                 maxWidth: "50px",
               }}
@@ -39,13 +41,14 @@ const Contact = () => (
           </a>
         </div>
         <div class="col s4 l4">
-        <a href="#">
-          <img
-            src={at}
-            style={{
-              maxWidth: "50px",
-            }}
-          />
+          <a href="https//www.google.com">
+            <img
+              src={at}
+              alt="email icon"
+              style={{
+                maxWidth: "50px",
+              }}
+            />
           </a>
         </div>
       </div>

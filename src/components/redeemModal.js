@@ -8,8 +8,8 @@ import DialogTitle from "@material-ui/core/DialogTitle"
 
 export default function RedeemModal(props) {
   const [open, setOpen] = React.useState(false)
-  const [fullWidth, setFullWidth] = React.useState(true)
-  const [maxWidth, setMaxWidth] = React.useState("lg")
+  const [fullWidth] = React.useState(true)
+  const [maxWidth] = React.useState("lg")
   function handleClickOpen() {
     setOpen(true)
   }
@@ -19,9 +19,11 @@ export default function RedeemModal(props) {
   }
 
   return (
-    <div style={{
-      textAlign: 'center'
-    }}>
+    <div
+      style={{
+        textAlign: "center",
+      }}
+    >
       <Button
         style={{
           backgroundColor: "#8852c4",

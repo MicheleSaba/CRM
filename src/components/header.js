@@ -9,7 +9,7 @@ const Header = ({ siteTitle }) => (
         <p
           className="brand-logo"
           style={{
-            fontSize: "16px",
+            fontSize: "14px",
           }}
         >
           <Link
