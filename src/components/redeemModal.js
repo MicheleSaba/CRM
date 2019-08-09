@@ -1,95 +1,66 @@
-import React, { Component } from "react"
-import M from "materialize-css"
-import "./materialize.min.css"
+import React from "react"
+import Button from "@material-ui/core/Button"
+import Dialog from "@material-ui/core/Dialog"
+import DialogActions from "@material-ui/core/DialogActions"
+import DialogContent from "@material-ui/core/DialogContent"
+import DialogContentText from "@material-ui/core/DialogContentText"
+import DialogTitle from "@material-ui/core/DialogTitle"
 
-class RedeemModal extends Component {
-  constructor() {
-    super()
-    this.state = {
-      disabled: false,
-    }
-  }
-  componentDidMount() {
-    const options = {
-      onOpenStart: () => {
-        console.log("Open Start")
-      },
-      onOpenEnd: () => {
-        console.log("Open End")
-      },
-      onCloseStart: () => {
-        console.log("Close Start")
-      },
-      onCloseEnd: () => {
-        console.log("Close End")
-      },
-      inDuration: 250,
-      outDuration: 250,
-      opacity: 0.5,
-      dismissible: false,
-      startingTop: "4%",
-      endingTop: "10%",
-    }
-    M.Modal.init(this.Modal, options)
-    // If you want to work on instance of the Modal then you can use the below code snippet
-    // let instance = M.Modal.getInstance(this.Modal);
-    // instance.open();
-    // instance.close();
-    // instance.destroy();
+export default function RedeemModal(props) {
+  const [open, setOpen] = React.useState(false)
+  const [fullWidth, setFullWidth] = React.useState(true)
+  const [maxWidth, setMaxWidth] = React.useState("lg")
+  function handleClickOpen() {
+    setOpen(true)
   }
 
-  handleClick = event => {
-    if (this.state.disabled) {
-      return
-    }
-    this.setState({ disabled: true })
-    // Send
+  function handleClose() {
+    setOpen(false)
   }
 
-  render() {
-    return (
-      <>
-        <a
-          className="waves-effect btn modal-trigger"
-          data-target="modal1"
-          style={{ backgroundColor: "#8852c4" }}
-          onClick={this.handleClick}
-          disabled={this.state.disabled}
-        >
-          Redeem
-        </a>
-
-        <div
-          ref={Modal => {
-            this.Modal = Modal
-          }}
-          id="modal1"
-          className="modal"
-        >
-          {/* If you want Bottom Sheet Modal then add 
-        bottom-sheet class */}
-          <div className="modal-content">
-            <h4>Coupon Code</h4>
-            <p
-              style={{
-                border: "dashed",
-                borderColor: "purple",
-                textAlign: "center",
-                padding: "40px",
-              }}
-            >
-              {this.props.couponCode}
-            </p>
-          </div>
-          <div class="modal-footer">
-            <a href="#" class="modal-close waves-effect waves-red btn-flat">
-              Close
-            </a>
-          </div>
-        </div>
-      </>
-    )
-  }
+  return (
+    <div style={{
+      textAlign: 'center'
+    }}>
+      <Button
+        style={{
+          backgroundColor: "#8852c4",
+          color: "#fff",
+          margin: "10px",
+        }}
+        onClick={handleClickOpen}
+      >
+        Redeem
+      </Button>
+      <Dialog
+        fullWidth={fullWidth}
+        maxWidth={maxWidth}
+        className="dialog"
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">Coupon Code</DialogTitle>
+        <DialogContent className="coupon-code">
+          <DialogContentText id="alert-dialog-description">
+            {props.couponCode}
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            onClick={handleClose}
+            autoFocus
+            style={{
+              backgroundColor: "#8852c4",
+              color: "#fff",
+              margin: "10px",
+            }}
+          >
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+  )
 }
-
-export default RedeemModal

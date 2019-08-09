@@ -1,7 +1,6 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import dove from "../images/dove-solid.svg"
 
 const Header = ({ siteTitle }) => (
   <header className="navbar-fixed">
@@ -29,13 +28,13 @@ const Header = ({ siteTitle }) => (
           style={{ color: "#333" }}
         >
           <li>
-            <a href="sass.html">About</a>
+            <a href="/about">About</a>
           </li>
           <li>
-            <a href="badges.html">Contact</a>
+            <a href="/contact">Contact</a>
           </li>
           <li>
-            <a href="collapsible.html">Group</a>
+            <a href="/group">Group</a>
           </li>
         </ul>
       </div>
@@ -48,7 +47,7 @@ Header.propTypes = {
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+  siteTitle: `Cedar Rapids & Marion Resale`,
 }
 
 export default Header
