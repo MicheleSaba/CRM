@@ -54,9 +54,18 @@ class BlogPostTemplate extends React.Component {
             }}
           />
           <div class="row">
+            <h3> About {product.companyName}</h3>
+            <hr />
+            <p>{product.aboutCompany.aboutCompany}</p>
+          </div>
+          <div class="row">
+            <h3> Terms & Conditions</h3>
+            <hr />
             <p>{product.termsAndConditions.termsAndConditions}</p>
           </div>
           <div class="row">
+            <h3> What You Get!</h3>
+            <hr />
             <p>{product.whatYouGet.whatYouGet}</p>
           </div>
           <p
@@ -89,8 +98,8 @@ class BlogPostTemplate extends React.Component {
               ${product.salePrice}
             </p>
           )}
-          <RedeemModal />
-          <p>{product.expires}</p>
+          <RedeemModal couponCode={product.couponCode} />
+          <p>Expires: {product.expires}</p>
           <div dangerouslySetInnerHTML={{ __html: product.html }} />
           <hr
             style={{
@@ -150,6 +159,10 @@ export const pageQuery = graphql`
         id
         whatYouGet
       }
+      aboutCompany {
+        id
+        aboutCompany
+      }
       originalPrice
       salePrice
       expires
@@ -159,6 +172,7 @@ export const pageQuery = graphql`
         lon
         lat
       }
+      couponCode
     }
   }
 `

@@ -6,8 +6,8 @@ class RedeemModal extends Component {
   constructor() {
     super()
     this.state = {
-      disabled : false
-  };
+      disabled: false,
+    }
   }
   componentDidMount() {
     const options = {
@@ -38,13 +38,13 @@ class RedeemModal extends Component {
     // instance.destroy();
   }
 
-  handleClick = (event) => {
+  handleClick = event => {
     if (this.state.disabled) {
-        return;
+      return
     }
-    this.setState({disabled: true});
-    // Send     
-}
+    this.setState({ disabled: true })
+    // Send
+  }
 
   render() {
     return (
@@ -53,7 +53,8 @@ class RedeemModal extends Component {
           className="waves-effect btn modal-trigger"
           data-target="modal1"
           style={{ backgroundColor: "#8852c4" }}
-          onClick={this.handleClick} disabled={this.state.disabled}
+          onClick={this.handleClick}
+          disabled={this.state.disabled}
         >
           Redeem
         </a>
@@ -68,8 +69,17 @@ class RedeemModal extends Component {
           {/* If you want Bottom Sheet Modal then add 
         bottom-sheet class */}
           <div className="modal-content">
-            <h4>Modal Header</h4>
-            <p>A bunch of text</p>
+            <h4>Coupon Code</h4>
+            <p
+              style={{
+                border: "dashed",
+                borderColor: "purple",
+                textAlign: "center",
+                padding: "40px",
+              }}
+            >
+              {this.props.couponCode}
+            </p>
           </div>
           <div class="modal-footer">
             <a href="#" class="modal-close waves-effect waves-red btn-flat">

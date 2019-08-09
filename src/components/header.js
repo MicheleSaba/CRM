@@ -1,51 +1,45 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import dove from "../images/dove-solid.svg"
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `#8852c4`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: "100%",
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1
-        style={{
-          margin: 0,
-          fontSize: "20px",
-        }}
-      >
-        <Link
-          to="/"
+  <header className="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <p
+          className="brand-logo"
           style={{
-            color: `white`,
-            textDecoration: `none`,
+            fontSize: "16px",
           }}
         >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-    <div
-      style={{
-        backgroundColor: "#c194f2",
-        padding: "40px",
-        color: "#fff",
-        textAlign: "center",
-      }}
-    >
-      <h1>
-        {" "}
-        Enjoy these member perks from local businesses in Cedar Rapids & Marion.
-      </h1>
-    </div>
+          <Link
+            to="/"
+            style={{
+              color: "#333",
+              textDecoration: `none`,
+            }}
+          >
+            {siteTitle}
+          </Link>
+        </p>
+        <ul
+          id="nav-mobile"
+          class="right hide-on-med-and-down"
+          style={{ color: "#333" }}
+        >
+          <li>
+            <a href="sass.html">About</a>
+          </li>
+          <li>
+            <a href="badges.html">Contact</a>
+          </li>
+          <li>
+            <a href="collapsible.html">Group</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   </header>
 )
 

@@ -6,8 +6,8 @@ if (process.env.NODE_ENV !== "production") {
 
 module.exports = {
   siteMetadata: {
-    title: `Hey Cedar Rapids`,
-    description: `Find great deals and perks from local businesses`,
+    title: `Cedar Rapids & Marion Resale`,
+    description: `Find great deals and perks from local businesses in Cedar Rapids & Marion.`,
     author: `Cedar Rapids & Marion Resale`,
   },
   plugins: [

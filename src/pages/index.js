@@ -16,6 +16,7 @@ class BlogIndex extends React.Component {
         <div
           style={{
             minHeight: "800px",
+            background: `#8852c4`,
           }}
         >
           <div class="row">
@@ -81,13 +82,20 @@ class BlogIndex extends React.Component {
                           <p
                             style={{
                               textAlign: "left",
-
                               paddingLeft: "2px",
                             }}
                           >
                             ${node.salePrice}
                           </p>
                         )}
+                        <p
+                          style={{
+                            textAlign: "right",
+                            paddingLeft: "2px",
+                          }}
+                        >
+                          expires: {node.expires}
+                        </p>
                       </div>
                     </div>
 
@@ -144,6 +152,7 @@ export const pageQuery = graphql`
             lon
             lat
           }
+          expires
         }
       }
     }
