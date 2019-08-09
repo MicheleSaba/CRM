@@ -13,6 +13,7 @@ const SecondPage = () => (
         textAlign: "center",
         padding: "40px",
         minHeight: "650px",
+        color: "#333",
       }}
     >
       <h1>
@@ -26,15 +27,28 @@ const SecondPage = () => (
       </p>
       <div class="row">
         <div class="col s12 l4">
-          <p>30k Monthly Posts</p>
+          <p className="purple-text">30k </p>
+          <p>Monthly Posts</p>
         </div>
         <div class="col s12 l4">
-          <p>13K Daily Active Members</p>
+          <p className="purple-text">13K </p>
+          <p>Daily Active Members</p>
         </div>
         <div class="col s12 l4">
-          <p>43K Local Members</p>
+          <p className="purple-text">43K </p>
+          <p>Local Members</p>
         </div>
       </div>
+      <div
+        style={{
+          margin: "auto",
+        }}
+        class="fb-group"
+        data-href="https://www.facebook.com/groups/cedarrapidsforsale"
+        data-width="300"
+        data-show-social-context="true"
+        data-show-metadata="false"
+      ></div>
     </div>
   </Layout>
 )

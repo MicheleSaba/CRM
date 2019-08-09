@@ -16,22 +16,17 @@ const Layout = ({ children }) => {
       }
     }
   `)
-
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
-          marginTop: `100px`,
           paddingTop: 0,
-          background: `#8852c4`,
         }}
       >
         <main>{children}</main>
         <footer
           style={{
-            background: `#8852c4`,
-            color: "#fff",
             textAlign: "center",
             bottom: "0",
           }}

@@ -659,3 +659,20 @@ ul li a {
 li {
   color: #222;
 }
+.purple-text {
+  color: #8852c4;
+  font-size: 30px;
+}
+.button {
+  background-color: #8852c4;
+  color: #fff;
+}
+.coupon-code {
+  border: dashed;
+  border-color: #8852c4;
+  margin: 10px; 
+}
+.dialog {
+  padding: 15px;
+  width: 100%
+}
