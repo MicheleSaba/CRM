@@ -7,11 +7,14 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
 }
 footer {
-  width: 100%; 
+  width: 100%;
   padding: 15px;
-  bottom: 0; 
+  bottom: 0;
 }
 article,
 aside,
@@ -208,7 +211,6 @@ html {
 body {
   color: hsla(0, 0%, 0%, 0.8);
   font-family: georgia, serif;
-  font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
   -moz-font-feature-settings: "kern", "liga", "clig", "calt";
@@ -632,4 +634,28 @@ main {
   html {
     font-size: 100%;
   }
+}
+a {
+  color: #8852c4;
+}
+a:hover {
+  color: #c194f2;
+}
+.subheading {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+nav {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding-left: 20px;
+  padding-top: 10px;
+}
+ul li a {
+  color: #8852c4;
+  font-size: 16px;
+}
+li {
+  color: #222;
 }
