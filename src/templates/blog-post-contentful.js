@@ -68,36 +68,7 @@ class BlogPostTemplate extends React.Component {
             <hr />
             <p>{product.whatYouGet.whatYouGet}</p>
           </div>
-          <p
-            style={{
-              textAlign: "left",
-              textDecoration: "line-through",
-              display: "inline-block",
-              width: "60px",
-              float: "left",
-              color: "#888",
-            }}
-          >
-            ${product.originalPrice}
-          </p>
-          {product.salePrice === 0 ? (
-            <p
-              style={{
-                textAlign: "left",
-              }}
-            >
-              Free
-            </p>
-          ) : (
-            <p
-              style={{
-                textAlign: "left",
-                paddingLeft: "2px",
-              }}
-            >
-              ${product.salePrice}
-            </p>
-          )}
+         
           <RedeemModal couponCode={product.couponCode} />
           <p>Expires: {product.expires}</p>
           <div dangerouslySetInnerHTML={{ __html: product.html }} />

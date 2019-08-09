@@ -2,8 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import GoogleMap from "../components/google-map"
-import Advertise from '../components/advertise'
+import Advertise from "../components/advertise"
 
 class BlogIndex extends React.Component {
   render() {
@@ -18,7 +17,7 @@ class BlogIndex extends React.Component {
         <div
           style={{
             minHeight: "800px",
-            background: `#8852c4`,
+            // background: `#8852c4`,
           }}
         >
           <div class="row">
@@ -26,7 +25,7 @@ class BlogIndex extends React.Component {
               const title = node.subTitle || node.slug
               return (
                 <div class="col s12 m6 l4">
-                  <div key={node.slug} class="card z-depth-3">
+                  <div key={node.slug} class="card ">
                     <div class="card-image">
                       <Link style={{ boxShadow: `none` }} to={node.slug}>
                         <img
@@ -45,28 +44,30 @@ class BlogIndex extends React.Component {
                       <p
                         style={{
                           textAlign: "left",
+                          fontSize: "18px",
                         }}
                       >
-                        <Link style={{ boxShadow: `none` }} to={node.slug}>
-                          {title}
-                        </Link>
+                        {node.companyName}
                       </p>
                       <p
                         style={{
                           textAlign: "left",
                         }}
                       >
-                        {node.companyName}
+                        <Link style={{ boxShadow: `none` }} to={node.slug}>
+                          {title}
+                        </Link>
                       </p>
+
                       <div>
                         <p
                           style={{
                             textAlign: "left",
                             textDecoration: "line-through",
                             display: "inline-block",
-                            width: "60px",
                             float: "left",
                             color: "#888",
+                            fontSize: "20px",
                           }}
                         >
                           ${node.originalPrice}
@@ -75,19 +76,21 @@ class BlogIndex extends React.Component {
                           <p
                             style={{
                               textAlign: "left",
+                              fontSize: "20px",
                             }}
                           >
                             {" "}
-                            Free{" "}
+                            &nbsp;&nbsp;Free{" "}
                           </p>
                         ) : (
                           <p
                             style={{
                               textAlign: "left",
                               paddingLeft: "2px",
+                              fontSize: "20px",
                             }}
                           >
-                            ${node.salePrice}
+                            &nbsp;&nbsp;${node.salePrice}
                           </p>
                         )}
                         <p
