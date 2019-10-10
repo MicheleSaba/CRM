@@ -1,1 +1,1 @@
-#diy blog
+#Cedar Rapids & Marion Resale Test App
