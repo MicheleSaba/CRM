@@ -2,17 +2,16 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Advertise from "../components/advertise"
 
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = this.props.data.site.siteMetadata.title
-    const products = data.allContentfulProduct.edges
+    const posts = data.allContentfulPost.edges
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <Advertise />
+        {/* <Advertise /> */}
         <SEO title="Cedar Rapids & Marion Resale Member Perks" />
         <div
           style={{
@@ -21,8 +20,8 @@ class BlogIndex extends React.Component {
           }}
         >
           <div class="row">
-            {products.map(({ node }) => {
-              const title = node.subTitle || node.slug
+            {posts.map(({ node }) => {
+              const title = node.subtitle || node.slug
               return (
                 <div class="col s12 m6 l4">
                   <div key={node.slug} class="card ">
@@ -47,7 +46,7 @@ class BlogIndex extends React.Component {
                           fontSize: "18px",
                         }}
                       >
-                        {node.companyName}
+                        {node.title}
                       </p>
                       <p
                         style={{
@@ -55,53 +54,11 @@ class BlogIndex extends React.Component {
                         }}
                       >
                         <Link style={{ boxShadow: `none` }} to={node.slug}>
-                          {title}
+                          {node.subtitle}
                         </Link>
                       </p>
 
-                      <div>
-                        <p
-                          style={{
-                            textAlign: "left",
-                            textDecoration: "line-through",
-                            display: "inline-block",
-                            float: "left",
-                            color: "#888",
-                            fontSize: "20px",
-                          }}
-                        >
-                          ${node.originalPrice}
-                        </p>
-                        {node.salePrice === 0 ? (
-                          <p
-                            style={{
-                              textAlign: "left",
-                              fontSize: "20px",
-                            }}
-                          >
-                            {" "}
-                            &nbsp;&nbsp;Free{" "}
-                          </p>
-                        ) : (
-                          <p
-                            style={{
-                              textAlign: "left",
-                              paddingLeft: "2px",
-                              fontSize: "20px",
-                            }}
-                          >
-                            &nbsp;&nbsp;${node.salePrice}
-                          </p>
-                        )}
-                        <p
-                          style={{
-                            textAlign: "right",
-                            paddingLeft: "2px",
-                          }}
-                        >
-                          expires: {node.expires}
-                        </p>
-                      </div>
+                      <div></div>
                     </div>
 
                     <p
@@ -129,35 +86,13 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulProduct {
+    allContentfulPost {
       edges {
         node {
-          companyName
-          subTitle
+          title
+          subtitle
           slug
           imageUrl
-          aboutCompany {
-            id
-            aboutCompany
-          }
-          whatYouGet {
-            id
-            whatYouGet
-          }
-          originalPrice
-          expires
-          startDate
-          termsAndConditions {
-            id
-            termsAndConditions
-          }
-          phone
-          salePrice
-          address {
-            lon
-            lat
-          }
-          expires
         }
       }
     }
