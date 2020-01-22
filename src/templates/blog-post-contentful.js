@@ -52,7 +52,6 @@ class BlogPostTemplate extends React.Component {
               textAlign: "center",
             }}
           />
-          <p>{post.blogcontent}</p>
 
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
           <hr
