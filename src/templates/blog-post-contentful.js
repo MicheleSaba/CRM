@@ -6,13 +6,13 @@ import RedeemModal from "../components/redeemModal"
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const product = this.props.data.contentfulProduct
+    const post = this.props.data.contentfulPost
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title={product.companyName} description={product.subTitle} />
+        <SEO title={post.title} description={post.subtitle} />
         <div
           style={{
             maxWidth: "600px",
@@ -30,8 +30,7 @@ class BlogPostTemplate extends React.Component {
               textAlign: "center",
             }}
           >
-            {product.title}
-            {product.companyName}
+            {post.title}
           </h1>
           <h2
             style={{
@@ -39,11 +38,11 @@ class BlogPostTemplate extends React.Component {
               textAlign: "center",
             }}
           >
-            {product.subTitle}
+            {post.subtitle}
           </h2>
           <img
-            src={`${product.imageUrl}`}
-            alt="product url"
+            src={`${post.imageUrl}`}
+            alt="post url"
             class="z-depth-5"
             style={{
               marginTop: 20,
@@ -53,25 +52,9 @@ class BlogPostTemplate extends React.Component {
               textAlign: "center",
             }}
           />
-          <div class="row">
-            <h3> About {product.companyName}</h3>
-            <hr />
-            <p>{product.aboutCompany.aboutCompany}</p>
-          </div>
-          <div class="row">
-            <h3> Terms & Conditions</h3>
-            <hr />
-            <p>{product.termsAndConditions.termsAndConditions}</p>
-          </div>
-          <div class="row">
-            <h3> What You Get!</h3>
-            <hr />
-            <p>{product.whatYouGet.whatYouGet}</p>
-          </div>
-         
-          <RedeemModal couponCode={product.couponCode} />
-          <p>Expires: {product.expires}</p>
-          <div dangerouslySetInnerHTML={{ __html: product.html }} />
+          <p>{post.blogcontent}</p>
+
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
           <hr
             style={{
               marginBottom: 20,
@@ -90,14 +73,14 @@ class BlogPostTemplate extends React.Component {
             <li>
               {previous && (
                 <Link to={previous.slug} rel="prev">
-                  ← {previous.companyName}
+                  ← {previous.title}
                 </Link>
               )}
             </li>
             <li>
               {next && (
                 <Link to={next.slug} rel="next">
-                  {next.companyName} →
+                  {next.title} →
                 </Link>
               )}
             </li>
@@ -118,32 +101,15 @@ export const pageQuery = graphql`
         author
       }
     }
-    contentfulProduct(slug: { eq: $slug }) {
-      subTitle
+    contentfulPost(slug: { eq: $slug }) {
+      subtitle
+      title
       imageUrl
-      companyName
-      termsAndConditions {
+      slug
+      content {
         id
-        termsAndConditions
+        content
       }
-      whatYouGet {
-        id
-        whatYouGet
-      }
-      aboutCompany {
-        id
-        aboutCompany
-      }
-      originalPrice
-      salePrice
-      expires
-      startDate
-      phone
-      address {
-        lon
-        lat
-      }
-      couponCode
     }
   }
 `
