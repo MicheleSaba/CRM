@@ -3,15 +3,15 @@ const path = require(`path`)
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const productPost = path.resolve(`./src/templates/blog-post-contentful.js`)
+  const blogPost = path.resolve(`./src/templates/blog-post-contentful.js`)
   return graphql(
     `
       {
-        allContentfulProduct {
+        allContentfulPost {
           edges {
             node {
               slug
-              companyName
+              title
             }
           }
         }
@@ -21,16 +21,15 @@ exports.createPages = ({ graphql, actions }) => {
     if (result.errors) {
       throw result.errors
     }
-    const products = result.data.allContentfulProduct.edges
+    const posts = result.data.allContentfulPost.edges
 
-    products.forEach((post, index) => {
-      const previous =
-        index === products.length - 1 ? null : products[index + 1].node
-      const next = index === 0 ? null : products[index - 1].node
+    posts.forEach((post, index) => {
+      const previous = index === posts.length - 1 ? null : posts[index + 1].node
+      const next = index === 0 ? null : posts[index - 1].node
 
       createPage({
         path: post.node.slug,
-        component: productPost,
+        component: blogPost,
         context: {
           slug: post.node.slug,
           previous,
