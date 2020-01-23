@@ -4,12 +4,13 @@ import React from "react"
 
 const Header = ({ siteTitle }) => (
   <header className="navbar-fixed">
-    <nav>
+    <nav style={{ backgroundColor: "#fff" }}>
       <div class="nav-wrapper">
         <p
           className="brand-logo"
           style={{
-            fontSize: "14px",
+            fontSize: "16px",
+            marginLeft: "30px",
           }}
         >
           <Link

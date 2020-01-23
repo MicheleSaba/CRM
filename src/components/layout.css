@@ -2,6 +2,7 @@ html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  font-family: "Open Sans", sans-serif;
 }
 body {
   margin: 0;
@@ -50,7 +51,7 @@ template {
 a {
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
-  color: #555;
+  color: #333;
   text-decoration: none;
 }
 a:active,
@@ -344,7 +345,7 @@ hgroup {
   padding-top: 0;
   margin-bottom: 1.45rem;
 }
-ul {
+/* ul {
   margin-left: 1.45rem;
   margin-right: 0;
   margin-top: 0;
@@ -355,7 +356,7 @@ ul {
   margin-bottom: 1.45rem;
   list-style-position: outside;
   list-style-image: none;
-}
+} */
 ol {
   margin-left: 1.45rem;
   margin-right: 0;
@@ -636,7 +637,7 @@ main {
   }
 }
 a {
-  color: #8852c4;
+  color: #333;
 }
 a:hover {
   color: #c194f2;
@@ -647,15 +648,15 @@ a:hover {
   font-weight: 700;
   text-transform: uppercase;
 }
-nav {
+/* nav {
   background-color: rgba(255, 255, 255, 0.6);
   padding-left: 20px;
   padding-top: 10px;
-}
-ul li a {
+} */
+/* ul li a {
   color: #8852c4;
   font-size: 16px;
-}
+} */
 li {
   color: #222;
 }
@@ -670,9 +671,12 @@ li {
 .coupon-code {
   border: dashed;
   border-color: #8852c4;
-  margin: 10px; 
+  margin: 10px;
 }
 .dialog {
   padding: 15px;
-  width: 100%
+  width: 100%;
+}
+nav a {
+  color: #333 !important;
 }
