@@ -2,17 +2,17 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import RedeemModal from "../components/redeemModal"
+// import RedeemModal from "../components/redeemModal"
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.contentfulPost
+    const product = this.props.data.contentfulProduct
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title={post.title} description={post.subtitle} />
+        <SEO title={product.companyName} description={product.subTitle} />
         <div
           style={{
             maxWidth: "600px",
@@ -30,7 +30,7 @@ class BlogPostTemplate extends React.Component {
               textAlign: "center",
             }}
           >
-            {post.title}
+            {/* {post.title} */}
           </h1>
           <h2
             style={{
@@ -38,10 +38,10 @@ class BlogPostTemplate extends React.Component {
               textAlign: "center",
             }}
           >
-            {post.subtitle}
+            {product.subtitle}
           </h2>
           <img
-            src={`${post.imageUrl}`}
+            src={`${product.imageUrl}`}
             alt="post url"
             class="z-depth-5"
             style={{
@@ -53,7 +53,7 @@ class BlogPostTemplate extends React.Component {
             }}
           />
 
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          <div dangerouslySetInnerHTML={{ __html: product.html }} />
           <hr
             style={{
               marginBottom: 20,
@@ -72,14 +72,14 @@ class BlogPostTemplate extends React.Component {
             <li>
               {previous && (
                 <Link to={previous.slug} rel="prev">
-                  ← {previous.title}
+                  ← {previous.companyName}
                 </Link>
               )}
             </li>
             <li>
               {next && (
                 <Link to={next.slug} rel="next">
-                  {next.title} →
+                  {next.companyName} →
                 </Link>
               )}
             </li>
@@ -97,17 +97,33 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        author
       }
     }
-    contentfulPost(slug: { eq: $slug }) {
-      subtitle
-      title
-      imageUrl
+    contentfulProduct(slug: { eq: $slug }) {
+      companyName
       slug
-      content {
+      subTitle
+      originalPrice
+      salePrice
+      expires
+      startDate
+      phone
+      imageUrl
+      aboutCompany {
         id
-        content
+        aboutCompany
+      }
+      whatYouGet {
+        id
+        whatYouGet
+      }
+      termsAndConditions {
+        id
+        termsAndConditions
+      }
+      address {
+        lon
+        lat
       }
     }
   }
