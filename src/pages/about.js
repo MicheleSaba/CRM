@@ -15,12 +15,14 @@ const SecondPage = () => (
         color: "#333",
       }}
     >
+      <h2>Above all else, we are a community</h2>
       <h1>
         An online community for Cedar Rapids residents to buy & sell used items,
-        ask questions and get recommendations.
+        ask community related questions and get recommendations for local
+        products and services.
       </h1>
       <p>
-        Cedar Rapids & Marion Resale is a semi-private community-driven project
+        Cedar Rapids & Marion Resale is a invite-only community-driven project
         designed to connect local buyers and sellers in a safe and conventient
         way, through the Facebook Groups Platform.
       </p>

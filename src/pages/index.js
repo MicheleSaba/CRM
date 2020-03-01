@@ -7,7 +7,7 @@ class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = this.props.data.site.siteMetadata.title
-    const posts = data.allContentfulPost.edges
+    const products = data.allContentfulProduct.edges
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -16,60 +16,56 @@ class BlogIndex extends React.Component {
         <div
           style={{
             minHeight: "800px",
-            // background: `#8852c4`,
           }}
         >
-          <div class="row">
-            {posts.map(({ node }) => {
-              const title = node.subtitle || node.slug
-              return (
-                <div class="col s12 m6 l4">
-                  <div key={node.slug} class="card ">
-                    <div class="card-image">
-                      <Link style={{ boxShadow: `none` }} to={node.slug}>
-                        <img
-                          src={`${node.imageUrl}`}
-                          class="responsive-img"
-                          alt="something nice"
-                        />
-                      </Link>
-                    </div>
-                    <div
-                      class="card-content"
-                      style={{
-                        paddingTop: "5px",
-                      }}
-                    >
-                      <p
-                        style={{
-                          textAlign: "left",
-                          fontSize: "18px",
-                        }}
-                      >
-                        {node.title}
-                      </p>
-                      <p
-                        style={{
-                          textAlign: "left",
-                        }}
-                      >
+          <div class="container" style={{ marginTop: "60px" }}>
+            <div class="row">
+              {products.map(({ node }) => {
+                const title = node.subTitle || node.slug
+                return (
+                  <div class="col s12 m6 l4">
+                    <div key={node.slug} class="card ">
+                      <div class="card-image">
                         <Link style={{ boxShadow: `none` }} to={node.slug}>
-                          {node.subtitle}
+                          <img
+                            src={`${node.imageUrl}`}
+                            class="responsive-img"
+                            alt="something nice"
+                          />
                         </Link>
-                      </p>
+                      </div>
+                      <div
+                        class="card-content"
+                        style={{
+                          paddingTop: "5px",
+                        }}
+                      >
+                        <p
+                          style={{
+                            textAlign: "left",
+                            fontSize: "18px",
+                          }}
+                        >
+                          {node.companyName}
+                        </p>
+                        <p
+                          style={{
+                            textAlign: "left",
+                          }}
+                        ></p>
+                        <div></div>
+                      </div>
 
-                      <div></div>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: node.description || node.excerpt,
+                        }}
+                      />
                     </div>
-
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: node.description || node.excerpt,
-                      }}
-                    />
                   </div>
-                </div>
-              )
-            })}
+                )
+              })}
+            </div>
           </div>
         </div>
       </Layout>
@@ -86,13 +82,13 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulPost {
+    allContentfulProduct {
       edges {
         node {
-          title
-          subtitle
+          companyName
           slug
           imageUrl
+          subTitle
         }
       }
     }
