@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-// import RedeemModal from "../components/redeemModal"
+import RedeemModal from "../components/redeemModal"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -30,16 +30,14 @@ class BlogPostTemplate extends React.Component {
               textAlign: "center",
             }}
           >
-            {/* {post.title} */}
+            {product.title}
           </h1>
           <h2
             style={{
               marginBottom: 0,
               textAlign: "center",
             }}
-          >
-            {product.subtitle}
-          </h2>
+          ></h2>
           <img
             src={`${product.imageUrl}`}
             alt="post url"
@@ -52,6 +50,24 @@ class BlogPostTemplate extends React.Component {
               textAlign: "center",
             }}
           />
+          <div>
+            <h2>{product.subTitle}</h2>
+            <div className="row ">
+              <p style={{ textAlign: "left" }}>
+                {" "}
+                <span className="linethrough">${product.originalPrice}</span>$
+                {product.salePrice}
+              </p>
+              <p>{product.startDate} </p>
+              <h3>Terms & Conditions</h3>
+              <p>{product.termsAndConditions.termsAndConditions}</p>
+              <h3>What you get!</h3>
+              <p>{product.whatYouGet.whatYouGet}</p>
+            </div>
+            <div className="row">
+              <RedeemModal code={product.couponCode} />
+            </div>
+          </div>
 
           <div dangerouslySetInnerHTML={{ __html: product.html }} />
           <hr
@@ -108,6 +124,7 @@ export const pageQuery = graphql`
       expires
       startDate
       phone
+      couponCode
       imageUrl
       aboutCompany {
         id

@@ -46,7 +46,7 @@ export default function RedeemModal(props) {
         <DialogTitle id="alert-dialog-title">Coupon Code</DialogTitle>
         <DialogContent className="coupon-code">
           <DialogContentText id="alert-dialog-description">
-            {props.couponCode}
+            {props.code}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
