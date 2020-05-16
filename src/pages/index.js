@@ -48,11 +48,14 @@ class BlogIndex extends React.Component {
                         >
                           {node.companyName}
                         </p>
-                        <p
+                        <h3
                           style={{
                             textAlign: "left",
                           }}
-                        ></p>
+                        >
+                          {" "}
+                          {node.subTitle}
+                        </h3>
                         <div></div>
                       </div>
 
