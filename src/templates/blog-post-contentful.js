@@ -59,8 +59,22 @@ class BlogPostTemplate extends React.Component {
                 {product.salePrice}
               </p>
               <p>{product.startDate} </p>
+
+              <div className="row">
+                <p>
+                  Company Phone:{" "}
+                  <a
+                    style={{ color: "purple", fontWeight: "600" }}
+                    href="tel:{product.phone}"
+                  >
+                    {product.phone}
+                  </a>
+                </p>
+              </div>
+              <hr />
               <h3>Terms & Conditions</h3>
               <p>{product.termsAndConditions.termsAndConditions}</p>
+              <hr />
               <h3>What you get!</h3>
               <p>{product.whatYouGet.whatYouGet}</p>
             </div>
