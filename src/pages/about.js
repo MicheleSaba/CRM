@@ -1,26 +1,24 @@
 import React from "react"
-
-import Layout from "../components/layout"
+// import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const SecondPage = () => (
-  <Layout>
+  <>
     <SEO title="Cedar Rapids & Marion Resale" />
     <div
       class="container"
       style={{
         textAlign: "center",
-        padding: "40px",
-        minHeight: "650px",
+
         color: "#333",
       }}
     >
-      <h2>Above all else, we are a community</h2>
-      <h1>
+      <hr />
+      <h2>
         An online community for Cedar Rapids residents to buy & sell used items,
         ask community related questions and get recommendations for local
         products and services.
-      </h1>
+      </h2>
       <p>
         Cedar Rapids & Marion Resale is a invite-only community-driven project
         designed to connect local buyers and sellers in a safe and conventient
@@ -51,7 +49,7 @@ const SecondPage = () => (
         data-show-metadata="false"
       ></div>
     </div>
-  </Layout>
+  </>
 )
 
 export default SecondPage
