@@ -29,6 +29,7 @@ export default function RedeemModal(props) {
           backgroundColor: "#8852c4",
           color: "#fff",
           margin: "10px",
+          width: "50%",
         }}
         onClick={handleClickOpen}
       >
@@ -46,7 +47,7 @@ export default function RedeemModal(props) {
         <DialogTitle id="alert-dialog-title">Coupon Code</DialogTitle>
         <DialogContent className="coupon-code">
           <DialogContentText id="alert-dialog-description">
-            {props.code}
+            <h2 style={{ textAlign: "center" }}>{props.code}</h2>
           </DialogContentText>
         </DialogContent>
         <DialogActions>

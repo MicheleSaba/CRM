@@ -51,7 +51,7 @@ template {
 a {
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
-  color: #333;
+  color: blue;
   text-decoration: none;
 }
 a:active,
@@ -640,7 +640,7 @@ a {
   color: #333;
 }
 a:hover {
-  color: #c194f2;
+  color: #fff;
 }
 .subheading {
   font-size: 12px;
@@ -682,4 +682,10 @@ nav a {
 }
 .linethrough {
   text-decoration: line-through;
+}
+.btn {
+  background-color: #8852c4;
+}
+.btn:hover {
+  background-color: #6813c9;
 }
